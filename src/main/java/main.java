@@ -9,8 +9,6 @@ public class main {
         System.out.print("Enter the host: ");
         String path = scanner.nextLine();
 
-        //String path = "https://www.oracle.com/";
-
         LinkService linkService = new LinkService(path);
         List<Page> pageList = linkService.engineLinkService(path);
         int foreignLinks = 0;
@@ -18,6 +16,6 @@ public class main {
             System.out.println(page);
             foreignLinks += page.getCountForeignLinks();
         }
-        System.out.println("Domain: " + path + ", foreign links: " + foreignLinks + ", count of pages: " + pageList.size());
+        System.out.println("Domain: " + path + ", foreign links: " + foreignLinks + ", count of native pages: " + pageList.size());
     }
 }
