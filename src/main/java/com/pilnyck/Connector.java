@@ -18,7 +18,8 @@ public class Connector {
                 //System.out.println(line);
             }
         } catch (IOException e) {
-            e.printStackTrace();
+            //e.printStackTrace();
+            System.err.println(e);
         }
         return stringBuilder.toString();
     }

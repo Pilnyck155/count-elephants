@@ -1,18 +1,16 @@
 
 import com.pilnyck.*;
-//import com.pilnyck.ListFactory;
-
-import java.util.ArrayList;
 import java.util.List;
+import java.util.Scanner;
 
 public class main {
     public static void main(String[] args) {
-        String path = "https://javarush.ru"; // enter from keyboard
-        //String path = "https://www.google.com/"; // enter from keyboard
-        //String path = "https://ubuntu.ru/"; // enter from keyboard
-        //String path = "https://horstmann.com/";
+        Scanner scanner = new Scanner(System.in);
+        System.out.print("Enter the host: ");
+        String path = scanner.nextLine();
 
-        //String content = Connector.getContent(path);
+        //String path = "https://www.oracle.com/";
+
         LinkService linkService = new LinkService(path);
         List<Page> pageList = linkService.engineLinkService(path);
         int foreignLinks = 0;
@@ -20,6 +18,6 @@ public class main {
             System.out.println(page);
             foreignLinks += page.getCountForeignLinks();
         }
-        System.out.println("Domain: " + path + ", foreign links: " + foreignLinks + ", count of pages: " + linkService.getNativeLinksCounter());
+        System.out.println("Domain: " + path + ", foreign links: " + foreignLinks + ", count of pages: " + pageList.size());
     }
 }
